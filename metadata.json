@@ -1,0 +1,113 @@
+{
+  "feature_columns": [
+    "ph",
+    "temperature",
+    "dissolved_oxygen",
+    "conductivity",
+    "bod",
+    "nitrate",
+    "fecal_coliform",
+    "total_coliform",
+    "hardness",
+    "solids",
+    "chloramines",
+    "sulfate",
+    "organic_carbon",
+    "trihalomethanes",
+    "turbidity"
+  ],
+  "target_column": "target",
+  "prediction_rule_columns": [
+    "ph",
+    "dissolved_oxygen",
+    "conductivity",
+    "bod",
+    "nitrate",
+    "fecal_coliform",
+    "total_coliform",
+    "hardness",
+    "solids",
+    "chloramines",
+    "sulfate",
+    "organic_carbon",
+    "trihalomethanes",
+    "turbidity",
+    "temperature"
+  ],
+  "wqi_reference": {
+    "ph": {
+      "ideal": 7.0,
+      "standard": 8.5,
+      "weight": 0.11
+    },
+    "dissolved_oxygen": {
+      "ideal": 14.6,
+      "standard": 5.0,
+      "weight": 0.17
+    },
+    "conductivity": {
+      "ideal": 0.0,
+      "standard": 300.0,
+      "weight": 0.07
+    },
+    "bod": {
+      "ideal": 0.0,
+      "standard": 3.0,
+      "weight": 0.11
+    },
+    "nitrate": {
+      "ideal": 0.0,
+      "standard": 10.0,
+      "weight": 0.1
+    },
+    "turbidity": {
+      "ideal": 0.0,
+      "standard": 5.0,
+      "weight": 0.08
+    },
+    "total_coliform": {
+      "ideal": 0.0,
+      "standard": 5000.0,
+      "weight": 0.12
+    },
+    "fecal_coliform": {
+      "ideal": 0.0,
+      "standard": 2500.0,
+      "weight": 0.14
+    },
+    "ph_rule_type": "range"
+  },
+  "contamination_rules": {
+    "safe_max_wqi": 50,
+    "moderate_max_wqi": 100
+  },
+  "disease_rules": {
+    "blue_baby_nitrate_threshold": 10.0,
+    "fluorosis_fluoride_threshold": 1.5,
+    "bacterial_contamination_do_threshold": 5.0
+  },
+  "ensemble_weights": {
+    "rf": 0.3342040631522327,
+    "lgb": 0.333452251095022,
+    "xgb": 0.33234368575274525
+  },
+  "test_file": "water_data\\test_water_quality.csv",
+  "model_metrics": {
+    "rf": {
+      "accuracy": 0.9485,
+      "f1_score": 0.9510096424093052
+    },
+    "lgb": {
+      "accuracy": 0.9464090909090909,
+      "f1_score": 0.9488702892579903
+    },
+    "xgb": {
+      "accuracy": 0.9426363636363636,
+      "f1_score": 0.9457157604955265
+    },
+    "ensemble": {
+      "accuracy": 0.9480909090909091,
+      "f1_score": 0.9506098088400657
+    }
+  }
+}
